@@ -1,4 +1,4 @@
-local relabelings = import '../../../kube-prometheus/dropping-deprecated-metrics-relabelings.libsonnet';
+local relabelings = import '../../kube-prometheus/dropping-deprecated-metrics-relabelings.libsonnet';
 
 {
   _config+:: {
@@ -215,6 +215,7 @@ local relabelings = import '../../../kube-prometheus/dropping-deprecated-metrics
         resources: {
           requests: { memory: '400Mi' },
         },
+        retention: '60d',
         alerting: {
           alertmanagers: [{
             namespace: p.namespace,
